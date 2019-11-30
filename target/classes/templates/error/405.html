@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" th:href="@{/css/styles-dynamic.css}" />
+		<link rel="stylesheet" th:href="@{/css/styles-general.css}" type="text/css" media="all"/>
+		<link rel="stylesheet" th:href="@{/css/select2.css}" type="text/css" media="all"/>
+		<link rel="stylesheet" th:href="@{/css/colorbox.css}" />
+		<link rel="stylesheet" th:href="@{/css/jquery.datepick.css}" />
+		<link rel="stylesheet" th:href="@{/css/coda.css}" type="text/css" media="all"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/auto-complete.css}" />  
+        <link rel="stylesheet" th:href="@{/css/myStyles.css}" />
+        <link rel="stylesheet" th:href="@{/css/grid.css}" />      
+		               
+        <!-- link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/ -->
+  		<script th:src="@{/js/angular.min.js}"></script>
+		<!-- script type="text/javascript" th:src="@{/js/jquery-1.4.2.js}"></script-->
+		<script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
+		<script type="text/javascript" th:src="@{/js/sexy-tooltips.v1.1.jquery.js}"></script>
+		<script type="text/javascript" th:src="@{/js/roundslider.min.js}"></script> 		
+        <!-- script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
+		<script type="text/javascript" th:src="@{/js/select2.js}"></script>
+		<script type="text/javascript" th:src="@{/js/gen_validate.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.colorbox.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.plugin.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.datepick.js}"></script>
+		<script type="text/javascript" th:src="@{/js/myScripts.js}"></script>
+		<script type="text/javascript" th:src="@{/js/auto-complete.js}"></script>
+		<script type="text/javascript" th:src="@{/js/my-auto-complete.js}"></script>
+		<style type="text/css">
+        select{height: 25px;}
+        .autocomplete-suggestions {width: auto !important;}
+        .help-inline{color: #a71830;}
+        .loading {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 430px;
+            position: absolute;
+            background-color: white;
+            z-index: 2;
+            left: 222px;
+            top: 74px;
+            height: 381px;
+        }
+        .loading img{
+
+            margin-left: 152px;
+            margin-top: 20px;
+        }
+        .hide{display:none}
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		    color:    #999;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		   color:    #999;
+		   opacity:  1;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+		   color:    #999;
+		   opacity:  1;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		   color:    #999;
+		}
+        </style>
+<title>Error</title>
+</head>
+<body>
+	<div th:replace="components/menubar :: navbar"> </div>
+	<div class="center-content" style="margin: 40px auto;">
+
+		<div id="error405" class="box-round-border width-700 simple-form-background simple-form">
+			<div class="box-round-content-margin">
+				<!--inicia contenido -->
+				<div class="width-590 center-content">
+					<br />
+					<br />
+					<br />
+					<p style="text-align: center">
+						<img id="Image1" th:src="@{/img/loo-warning-sign.gif}" style="border-width: 0px;" /><br />
+						<br /> <span th:utext="#{payment.pagError.msgFirst}"></span>
+						<br /> <span th:utext="#{payment.pagError.msgSec(#{payment.unknow}+ ' ' +(${session.fqtvNumber}) + ' '+  ${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')})}"></span><br />
+						<br />LifeMiles Team.
+					</p>
+					<br />
+					<br />
+				</div>
+
+			</div>
+			<!--finaliza contenido -->
+			<div class="bottom-borders-container">
+				<span class="bottom-box-right-corner"></span> 
+				<span class="bottom-box-left-corner"></span>
+			</div>
+
+		</div>
+	</div>
+	<div style="display: none">	
+    	<div id="exitBook">
+        	<div style="float:left; width:32px; text-align:center;"><br/>
+        		<img id="ImageWarning" src="/img/loo-warning-sign.gif" th:src="@{/img/loo-warning-sign.gif}" style="border-width:0px;" />
+            </div>
+            <div style="float:left;">
+            	<div style="text-align:justify; width: 483px;"><p id="lblmsgerrMen"><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:remove="tag" th:text="#{booking.perderTrs}"></span></p>
+                	<div style="margin-left:140px; margin-top:30px">
+                    	<div id="Div5" style="float: left; margin-left: 5px; width: 90px; display:;" class="slide-simple-button">
+                        	<span class="slide-button-right2"></span>
+                            <a id="btnAbPage" class="link-hand" rel="#">
+                            	<span class="slide-button-left" th:text="#{booking.btnContinuar}"></span>
+                            </a>
+                      	</div>
+                        <div style="float: left; margin-left: 5px; width: 80px;" class="slide-simple-button">
+                        	<span class="slide-button-right2"></span>
+                            <a id="cancelPage" href="javascript:$.fn.colorbox.close();" class="link-hand">
+                            <span id="BtnCan" href="javascript:$seguir();" class="slide-button-left" th:text="#{booking.btnCanelar}"></span>
+                            </a>
+                        </div>
+                        <div class="limpiar"></div>
+                    </div>
+                    <div class="limpiar"></div>
+                    </div>
+            </div>
+        </div>
+    </div>     
+	<div th:replace="components/footer"> </div>
+</body>
+</html>

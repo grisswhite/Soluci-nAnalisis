@@ -1,0 +1,125 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<div id="top-bar-booking" th:fragment="navbar">
+    <div th:if="${session.canal == 'COM'}" th:fragment="google-tag-manager">
+        <!-- Google Tag Manager -->
+        <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            (function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push(
+                {'gtm.start':new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;
+                j.src ='https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-NXVRZ4D');
+            /*]]>*/     
+        </script>
+        <!-- End Google Tag Manager -->
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXVRZ4D" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->    
+    </div>
+    <div id="logo-container">
+        <a id="logo" class = "unobtrusive" th:href = "#{booking.urlhed.ind}">
+            <img src="../../static/img/loo-box-background.gif" th:src="@{/img/loo-hp-lm-logo.png}" width="201" height="79" />
+        </a>
+    </div>	
+    <div id="secondary-menu">
+        <ul>
+            <!-- li style="border:none;">
+            	<a href="#">
+	            	<select class="countrySel no-txt e1" name="" id="">
+	                   <option value="0">Colombia</option>
+	                   <option value="0">Costa Rica</option>
+	                   <option value="0">Ecuador</option>
+	                   <option value="0">El Salvador</option>
+	                   <option value="0">Estados Unidos</option>
+	                   <option value="0">Guatemala</option>
+	                   <option value="0">Perú</option>
+	                   <option value="0">Resto del mundo</option>
+	                 </select>
+                 </a>
+            </li-->
+            <!--<asp:Label ID="lblregion" runat="server" Text=""></asp:Label>--> 
+        </ul>
+    </div>
+    <div class="top-bar">
+        <div class="login-main">
+            <div id="BarraLogin" runat="server">
+                
+                  <div id="loggued" class="logShow" th:if="${session.canal != null}">
+                      <div class="text-right">
+                      <div class="pull-right">
+                          <span class="logTXT"><strong><span th:text="#Hola"></span></strong> 
+                          <span th:remove="tag" th:text="${#strings.capitalizeWords(#strings.toLowerCase(session.memberName))}"></span>
+                          </span> 
+                          <div class="clearfix"></div>
+                          <span style="font-size:20px; margin-top:10px;display: block;">MarketPlace
+                          <span th:remove="tag" th:text="${#numbers.formatDecimal(session.balanceMiles, 0, 'COMMA', 0, 'POINT')}"></span></span>
+                       </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+	<div id="header" th:fragment="menubar">
+        <div id="main-nlm-menu">
+            <div id="new-lm-menu">
+                <div class="menu-line-div line-dv-1"></div>
+                <div class="menu-line-div line-dv-2"></div>
+                <div class="menu-line-div line-dv-3"></div>
+                <div class="menu-line-div line-dv-4"></div>
+                <div class="menu" id="me-1">
+                    <a href="#"><span th:text="#{menubar.opcDescubre}" th:remove="tag"></span></a>
+                </div>
+                <div class="menu" id="me-2">
+                    <a href="#"><span th:text="#{menubar.opcTuslm}" th:remove="tag"></span></a>
+                </div>
+                <div class="menu" id="me-3">
+                    <a href="#"><span th:text="#{menubar.opcGana}" th:remove="tag"></span></a>
+                </div>
+                <div class="menu" id="me-4">
+                    <a href="#"><span th:text="#{menubar.opcRedim}" th:remove="tag"></span></a>
+                </div>
+                <div class="menu" id="me-5">
+                    <a href="#"><span th:text="#{menubar.opcHerra}" th:remove="tag"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div id="steps" th:fragment="steps">
+
+	<div class="step-space p-relative f-left step-red">
+	<div class="border-main-img border-red-left"></div>
+	<div class="border-main-img border-red-bleft"></div>
+	<div class="step-active f-left step-active-left"></div>
+	<div class="step-active f-left step-active-center"><div class="step-text step-active"><span th:text="#{booking.steps.paso1}" th:remove="tag"></span></div></div>
+	<div class="step-active f-right step-active-active-right"></div>
+	</div>
+	
+	<div class="step-space f-left step-red">
+	<div class="step-active f-left step-active-center w-195"><div class="step-text"><span th:text="#{booking.steps.paso2}" th:remove="tag"></span></div></div>
+	<div class="step-active f-right step-active-active-right"></div>
+	</div>
+	
+	<div class="step-space f-left step-red">
+	<div class="step-active f-left step-active-center w-195"><div class="step-text"><span th:text="#{booking.steps.paso3}" th:remove="tag"></span></div></div>
+	<div class="step-active f-right step-active-right"></div>
+	</div>
+	
+	
+	<div class="step-space f-left">
+	<div class="step-active f-left step-normal-center" >
+	<div class="step-text"><span th:text="#{booking.steps.paso4}" th:remove="tag"></span></div></div>
+	<div class="step-active f-right step-normal-end"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+</body>
+</html>

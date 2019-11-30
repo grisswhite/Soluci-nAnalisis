@@ -1,0 +1,42 @@
+server:
+  port: 443
+  servlet:
+    context-path: /payment
+    session:
+      tracking-modes: cookie
+  ssl.key-store: devkeystore.jks
+  ssl.key-store-password: devloyalty
+  ssl.key-password: devloyalty
+  server.ssl.key-store-type: PKCS12
+  server.ssl.key-alias: tomcat
+  tomcat:
+    max-threads: 800
+
+
+
+http:
+  port: 80 
+    
+spring:
+  thymeleaf:
+    cache: false
+    suffix: .html
+  messages:
+    basename: messages
+    encoding: ISO-8859-1
+  profiles:
+    active: local
+#Log configuration
+logging:
+  path: file-log/${spring.profiles.active}/ps-payment-views/
+  name_errors_log: ${logging.path}${hostname}_Error.log
+  name_custom_log: ${logging.path}${hostname}.log
+        
+service:
+  configuration:
+    http:
+      http-request-timeout: 30000
+      socket-timeout: 600000
+      conn-request-timeout: 30000
+      max-threads: 400
+      max-threads-per-route: 200
